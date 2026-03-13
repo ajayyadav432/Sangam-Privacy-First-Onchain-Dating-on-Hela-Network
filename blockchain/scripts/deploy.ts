@@ -5,7 +5,7 @@ import * as path from "path";
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-  console.log("  ChainDate — Deploy Script");
+  console.log("  Sangam — Deploy Script");
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   console.log(`  Deployer : ${deployer.address}`);
   console.log(`  Network  : ${(await ethers.provider.getNetwork()).name}`);
@@ -59,3 +59,4 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+

@@ -9,11 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ChainDate — Privacy-First Onchain Dating",
+  title: "Sangam — Privacy-First Onchain Dating",
   description: "The world's first fully on-chain, ZK-private dating dApp on Hela Network. Swipe, match, and connect without exposing your identity.",
   keywords: ["blockchain", "dating", "ZK proof", "Hela Network", "Web3", "dApp", "privacy"],
   openGraph: {
-    title: "ChainDate",
+    title: "Sangam",
     description: "Swipe, match, and connect on-chain with ZK privacy.",
     type: "website",
   },
@@ -28,3 +28,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

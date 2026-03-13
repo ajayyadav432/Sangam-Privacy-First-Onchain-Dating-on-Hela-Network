@@ -26,7 +26,7 @@ export default function LandingPage() {
       <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between glass border-b border-white/5">
         <div className="flex items-center gap-2">
           <span className="text-2xl">💜</span>
-          <span className="font-black text-xl tracking-tight gradient-text">ChainDate</span>
+          <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
           <span className="ml-2 text-[10px] font-semibold bg-violet-600/20 border border-violet-500/30 text-violet-300 px-2 py-0.5 rounded-full">Hela Network</span>
         </div>
         <WalletConnect onConnected={handleConnected} />
@@ -106,10 +106,11 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-6 px-6 text-center border-t border-white/5">
         <p className="text-gray-600 text-xs">
-          ChainDate · Built for <span className="text-violet-400">HackJKLU v5.0</span> · Hela Labs Track · 
+          Sangam · Built for <span className="text-violet-400">HackJKLU v5.0</span> · Hela Labs Track · 
           <span className="ml-1 text-gray-700">Deployed on Hela Network (EVM)</span>
         </p>
       </footer>
     </main>
   );
 }
+

@@ -1,7 +1,7 @@
 /**
  * lib/contracts.ts
  * ─────────────────
- * Contract ABIs and address configuration for ChainDate dApp.
+ * Contract ABIs and address configuration for Sangam dApp.
  * After running `npx hardhat run scripts/deploy.ts`, the deployed addresses
  * are written to deployedAddresses.json automatically.
  */
@@ -78,3 +78,4 @@ export async function switchToHelaNetwork() {
     } else throw err;
   }
 }
+

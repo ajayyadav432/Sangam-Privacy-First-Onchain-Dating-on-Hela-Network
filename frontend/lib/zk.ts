@@ -1,7 +1,7 @@
 /**
  * lib/zk.ts
  * ─────────
- * Mock ZK proof generator for ChainDate demo.
+ * Mock ZK proof generator for Sangam demo.
  * Interface mirrors what real SnarkJS fullProve() returns so the integration
  * can be swapped to real proofs by replacing this file only.
  *
@@ -92,3 +92,4 @@ export function encodeProofForContract(proof: ZKProofResult): {
     signalsCalldata: proof.publicSignals,
   };
 }
+

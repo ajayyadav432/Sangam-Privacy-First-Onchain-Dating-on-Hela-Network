@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 import { DatingCore, EscrowContent, MockZKVerifier } from "../typechain-types";
 
-describe("ChainDate — Smart Contracts", () => {
+describe("Sangam — Smart Contracts", () => {
   let zkVerifier: MockZKVerifier;
   let datingCore: DatingCore;
   let escrow: EscrowContent;
@@ -185,3 +185,4 @@ describe("ChainDate — Smart Contracts", () => {
     });
   });
 });
+

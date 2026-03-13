@@ -25,7 +25,7 @@ export default function RegisterPage() {
       <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between glass border-b border-white/5">
         <a href="/" className="flex items-center gap-2">
           <span className="text-2xl">💜</span>
-          <span className="font-black text-xl tracking-tight gradient-text">ChainDate</span>
+          <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
         </a>
         <WalletConnect onConnected={handleConnected} />
       </nav>
@@ -53,3 +53,4 @@ export default function RegisterPage() {
     </main>
   );
 }
+

@@ -82,7 +82,7 @@ export default function MatchesPage() {
         <div className="flex items-center gap-4">
           <a href="/" className="flex items-center gap-2">
             <span className="text-2xl">💜</span>
-            <span className="font-black text-xl tracking-tight gradient-text">ChainDate</span>
+            <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
           </a>
           <Link href="/swipe" className="text-sm text-gray-400 hover:text-violet-300 transition">← Swipe</Link>
         </div>
@@ -203,3 +203,4 @@ export default function MatchesPage() {
     </main>
   );
 }
+

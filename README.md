@@ -1,4 +1,4 @@
-# ChainDate 💜 — Privacy-First Onchain Dating on Hela Network
+# Sangam 💜 — Privacy-First Onchain Dating on Hela Network
 
 > **HackJKLU v5.0 · Hela Labs Track**  
 > A fully on-chain, ZK-private dating dApp. Swipe, match, and connect — without exposing your identity.
@@ -134,4 +134,5 @@ User                         ZKP Layer                    Smart Contract
 
 ---
 
-*Built with 💜 for HackJKLU v5.0 by Team ChainDate*
+*Built with 💜 for HackJKLU v5.0 by Team Sangam*
+

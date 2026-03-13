@@ -96,7 +96,7 @@ export default function SwipePage() {
       <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between glass border-b border-white/5">
         <a href="/" className="flex items-center gap-2">
           <span className="text-2xl">💜</span>
-          <span className="font-black text-xl tracking-tight gradient-text">ChainDate</span>
+          <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
         </a>
         <div className="flex items-center gap-3">
           <Link href="/matches" className="text-sm text-violet-300 hover:text-violet-200 transition">
@@ -188,3 +188,4 @@ export default function SwipePage() {
     </main>
   );
 }
+
