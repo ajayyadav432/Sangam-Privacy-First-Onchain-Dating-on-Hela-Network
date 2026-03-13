@@ -1,19 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
-import { ethers } from "ethers";
 import WalletConnect from "@/components/WalletConnect";
 import ProfileForm from "@/components/ProfileForm";
+import { useWallet } from "@/context/WalletContext";
 
 export default function RegisterPage() {
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
-  const [address, setAddress] = useState<string | null>(null);
+  const { signer, address } = useWallet();
   const router = useRouter();
-
-  function handleConnected(s: ethers.Signer, addr: string) {
-    setSigner(s);
-    setAddress(addr);
-  }
 
   function handleRegistered() {
     router.push("/swipe");
@@ -27,7 +21,7 @@ export default function RegisterPage() {
           <span className="text-2xl">💜</span>
           <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
         </a>
-        <WalletConnect onConnected={handleConnected} />
+        <WalletConnect />
       </nav>
 
       <div className="flex-1 flex items-center justify-center px-4 py-12">
@@ -39,7 +33,7 @@ export default function RegisterPage() {
                 <h1 className="text-2xl font-bold text-gray-900 mb-2">Connect to Register</h1>
                 <p className="text-gray-600 text-sm">You need a wallet to create your encrypted on-chain profile.</p>
               </div>
-              <WalletConnect onConnected={handleConnected} />
+              <WalletConnect />
             </div>
           ) : (
             <ProfileForm

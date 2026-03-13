@@ -5,6 +5,7 @@ import Link from "next/link";
 import WalletConnect from "@/components/WalletConnect";
 import MatchCard from "@/components/MatchCard";
 import ContentUnlock from "@/components/ContentUnlock";
+import { useWallet } from "@/context/WalletContext";
 
 interface Message {
   from: string;
@@ -37,8 +38,7 @@ const MOCK_CONTENT = [
 ];
 
 export default function MatchesPage() {
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
-  const [address, setAddress] = useState<string | null>(null);
+  const { signer } = useWallet();
   const [activeChat, setActiveChat] = useState<(typeof MOCK_MATCHES)[0] | null>(null);
   const [messages, setMessages] = useState<Message[]>([
     { from: "0x4A3B8fEa2D9C1F5e6D7b0A9c3E2F8B1d4C5A6B7C", text: "Hey! Looks like we matched 💜 Love that you're into music too!", ts: Date.now() - 60000 },
@@ -47,11 +47,6 @@ export default function MatchesPage() {
   const [msgInput, setMsgInput] = useState("");
   const [txPending, setTxPending] = useState(false);
   const [unlockedContent, setUnlockedContent] = useState<number[]>([]);
-
-  function handleConnected(s: ethers.Signer, addr: string) {
-    setSigner(s);
-    setAddress(addr);
-  }
 
   async function handleSendMessage() {
     if (!msgInput.trim()) return;
@@ -86,7 +81,7 @@ export default function MatchesPage() {
           </a>
           <Link href="/swipe" className="text-sm text-gray-600 hover:text-violet-300 transition">← Swipe</Link>
         </div>
-        <WalletConnect onConnected={handleConnected} />
+        <WalletConnect />
       </nav>
 
       <div className="flex flex-1 overflow-hidden max-h-[calc(100vh-73px)]">

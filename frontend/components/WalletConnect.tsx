@@ -1,47 +1,27 @@
 "use client";
-import React, { useState } from "react";
-import { ethers } from "ethers";
-import { switchToHelaNetwork } from "@/lib/contracts";
+import React from "react";
+import { useWallet } from "@/context/WalletContext";
 
-interface WalletConnectProps {
-  onConnected: (signer: ethers.Signer, address: string) => void;
-}
-
-export default function WalletConnect({ onConnected }: WalletConnectProps) {
-  const [address, setAddress] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  async function connect() {
-    if (!window.ethereum) {
-      setError("No Ethereum wallet found. Install MetaMask.");
-      return;
-    }
-    setLoading(true);
-    setError(null);
-    try {
-      await switchToHelaNetwork();
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      await provider.send("eth_requestAccounts", []);
-      const signer = await provider.getSigner();
-      const addr = await signer.getAddress();
-      setAddress(addr);
-      onConnected(signer, addr);
-    } catch (err: any) {
-      setError(err.message || "Connection failed");
-    } finally {
-      setLoading(false);
-    }
-  }
+export default function WalletConnect() {
+  const { address, loading, error, connect, disconnect } = useWallet();
 
   if (address) {
     return (
-      <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
-        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-sm font-mono text-emerald-300">
-          {address.slice(0, 6)}…{address.slice(-4)}
-        </span>
-        <span className="text-xs text-emerald-500/60 ml-1">Hela Network</span>
+      <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-sm font-mono text-emerald-700">
+            {address.slice(0, 6)}…{address.slice(-4)}
+          </span>
+          <span className="text-xs text-emerald-600/70 ml-1">Hela</span>
+        </div>
+        <button
+          onClick={disconnect}
+          className="text-xs text-gray-400 hover:text-rose-500 transition-colors px-2 py-1 rounded-lg hover:bg-rose-50"
+          title="Disconnect"
+        >
+          ✕
+        </button>
       </div>
     );
   }
@@ -51,7 +31,7 @@ export default function WalletConnect({ onConnected }: WalletConnectProps) {
       <button
         onClick={connect}
         disabled={loading}
-        className="group relative px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-400 text-gray-900 font-semibold text-sm tracking-wide overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-rose-500/30 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="group relative px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-400 text-white font-semibold text-sm tracking-wide overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-rose-500/30 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
         {loading ? (
@@ -71,9 +51,7 @@ export default function WalletConnect({ onConnected }: WalletConnectProps) {
           </span>
         )}
       </button>
-      {error && <p className="text-rose-400 text-xs text-center max-w-xs">{error}</p>}
+      {error && <p className="text-rose-500 text-xs text-center max-w-xs">{error}</p>}
     </div>
   );
 }
-
-

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { WalletProvider } from "@/context/WalletContext";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,12 +24,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
-      <body className="antialiased bg-[var(--bg-color)] text-gray-900 min-h-screen font-sans">
-        {children}
+      <body className="antialiased bg-[var(--bg-color)] text-gray-900 min-h-screen font-sans flex flex-col">
+        <WalletProvider>
+          {children}
+          <Footer />
+        </WalletProvider>
       </body>
     </html>
   );
 }
+
 
 
 

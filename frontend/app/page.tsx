@@ -1,17 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { ethers } from "ethers";
 import WalletConnect from "@/components/WalletConnect";
+import { useWallet } from "@/context/WalletContext";
 
 export default function LandingPage() {
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
-  const [address, setAddress] = useState<string | null>(null);
-
-  function handleConnected(s: ethers.Signer, addr: string) {
-    setSigner(s);
-    setAddress(addr);
-  }
+  const { address } = useWallet();
 
   const features = [
     { icon: "🔐", title: "ZK Privacy", desc: "Your identity is proven, never exposed. Matches verified via zero-knowledge proofs." },
@@ -29,7 +23,7 @@ export default function LandingPage() {
           <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
           <span className="ml-2 text-[10px] font-semibold bg-rose-500/20 border border-rose-500/30 text-violet-300 px-2 py-0.5 rounded-full">Hela Network</span>
         </div>
-        <WalletConnect onConnected={handleConnected} />
+        <WalletConnect />
       </nav>
 
       {/* Hero section */}
@@ -103,13 +97,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-6 px-6 text-center border-t border-white/5">
-        <p className="text-gray-600 text-xs">
-          Sangam · Built for <span className="text-rose-500">HackJKLU v5.0</span> · Hela Labs Track · 
-          <span className="ml-1 text-gray-700">Deployed on Hela Network (EVM)</span>
-        </p>
-      </footer>
     </main>
   );
 }

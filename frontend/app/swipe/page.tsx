@@ -1,9 +1,9 @@
-    "use client";
-import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import WalletConnect from "@/components/WalletConnect";
 import SwipeCard, { CardProfile } from "@/components/SwipeCard";
+import { useWallet } from "@/context/WalletContext";
 
 // ── Mock profiles for demo (replace with on-chain event indexing) ─────────────
 const DEMO_PROFILES: CardProfile[] = [
@@ -58,17 +58,11 @@ const MY_AGE = 23;
 const MY_INTERESTS = [1, 5, 7, 2]; // Music, Travel, Art, Gaming
 
 export default function SwipePage() {
-  const [signer, setSigner] = useState<ethers.Signer | null>(null);
-  const [address, setAddress] = useState<string | null>(null);
+  const { signer, address } = useWallet();
   const [deck, setDeck] = useState<CardProfile[]>(DEMO_PROFILES);
   const [matches, setMatches] = useState<CardProfile[]>([]);
   const [showMatch, setShowMatch] = useState<CardProfile | null>(null);
   const [stats, setStats] = useState({ likes: 0, nopes: 0 });
-
-  function handleConnected(s: ethers.Signer, addr: string) {
-    setSigner(s);
-    setAddress(addr);
-  }
 
   function handleSwipeDone(addr: string, liked: boolean) {
     setDeck(prev => prev.filter(p => p.address !== addr));
@@ -104,7 +98,7 @@ export default function SwipePage() {
               <span className="ml-1 bg-rose-500 text-gray-900 text-xs px-1.5 py-0.5 rounded-full">{matches.length}</span>
             )}
           </Link>
-          <WalletConnect onConnected={handleConnected} />
+          <WalletConnect />
         </div>
       </nav>
 
