@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --violet: #7c3aed;
+  --fuchsia: #c026d3;
+  --emerald: #10b981;
+  --rose: #f43f5e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: #030712;
+  color: #f9fafb;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Neon glow utilities */
+.glow-violet { box-shadow: 0 0 24px rgba(124, 58, 237, 0.4); }
+.glow-fuchsia { box-shadow: 0 0 24px rgba(192, 38, 211, 0.4); }
+.glow-emerald { box-shadow: 0 0 24px rgba(16, 185, 129, 0.3); }
+
+/* Animated gradient background */
+.bg-hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,58,237,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 80%, rgba(192,38,211,0.12) 0%, transparent 60%),
+              #030712;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.4); border-radius: 9999px; }
+
+/* Card stack animation */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.float-card { animation: floatCard 3s ease-in-out infinite; }
+
+/* Pulse ring animation */
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: var(--violet);
+  animation: pulseRing 2s ease-out infinite;
+  z-index: -1;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 40%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon border */
+.neon-border {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(124,58,237,0.6), rgba(192,38,211,0.6));
+  z-index: -1;
+}
