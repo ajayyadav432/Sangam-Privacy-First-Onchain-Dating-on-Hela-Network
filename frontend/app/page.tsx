@@ -42,7 +42,7 @@ export default function LandingPage() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-2xl shadow-lg shadow-violet-500/40">💜</div>
             <div className="text-center">
               <p className="text-sm font-bold text-white">0x4A3…f9B2</p>
-              <p className="text-xs text-gray-400 mt-0.5">Age: ≥18 (ZK Proven)</p>
+              <p className="text-xs text-gray-600 mt-0.5">Age: ≥18 (ZK Proven)</p>
               <div className="flex flex-wrap justify-center gap-1 mt-2">
                 <span className="text-[10px] bg-violet-600/20 border border-violet-500/30 text-violet-300 px-2 py-0.5 rounded-full">🎵 Music</span>
                 <span className="text-[10px] bg-violet-600/20 border border-violet-500/30 text-violet-300 px-2 py-0.5 rounded-full">✈️ Travel</span>
@@ -60,8 +60,8 @@ export default function LandingPage() {
           <br />
           <span className="text-white">Privacy, Always.</span>
         </h1>
-        <p className="text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
-          The world&apos;s first ZK-private dating dApp on <span className="text-violet-400 font-semibold">Hela Network</span>. 
+        <p className="text-gray-600 text-lg max-w-xl leading-relaxed mb-10">
+          The world&apos;s first ZK-private dating dApp on <span className="text-rose-500 font-semibold">Hela Network</span>. 
           Swipe on-chain, prove you&apos;re a match — without revealing who you are.
         </p>
 
@@ -96,7 +96,7 @@ export default function LandingPage() {
               <span className="text-3xl shrink-0">{f.icon}</span>
               <div>
                 <h3 className="font-bold text-white text-sm mb-1">{f.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{f.desc}</p>
+                <p className="text-gray-600 text-xs leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
@@ -106,11 +106,12 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-6 px-6 text-center border-t border-white/5">
         <p className="text-gray-600 text-xs">
-          Sangam · Built for <span className="text-violet-400">HackJKLU v5.0</span> · Hela Labs Track · 
+          Sangam · Built for <span className="text-rose-500">HackJKLU v5.0</span> · Hela Labs Track · 
           <span className="ml-1 text-gray-700">Deployed on Hela Network (EVM)</span>
         </p>
       </footer>
     </main>
   );
 }
+
 

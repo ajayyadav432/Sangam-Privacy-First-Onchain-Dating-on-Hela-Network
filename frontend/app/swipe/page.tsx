@@ -101,7 +101,7 @@ export default function SwipePage() {
         <div className="flex items-center gap-3">
           <Link href="/matches" className="text-sm text-violet-300 hover:text-violet-200 transition">
             Matches {matches.length > 0 && (
-              <span className="ml-1 bg-violet-600 text-white text-xs px-1.5 py-0.5 rounded-full">{matches.length}</span>
+              <span className="ml-1 bg-violet-600 text-gray-900 text-xs px-1.5 py-0.5 rounded-full">{matches.length}</span>
             )}
           </Link>
           <WalletConnect onConnected={handleConnected} />
@@ -120,11 +120,11 @@ export default function SwipePage() {
         {deck.length === 0 ? (
           <div className="flex flex-col items-center gap-4 text-center max-w-xs">
             <div className="text-6xl mb-2">🌗</div>
-            <h2 className="text-2xl font-bold text-white">You&apos;ve seen them all</h2>
-            <p className="text-gray-400 text-sm">New profiles are indexed from the blockchain daily. Check your matches!</p>
+            <h2 className="text-2xl font-bold text-gray-900">You&apos;ve seen them all</h2>
+            <p className="text-gray-600 text-sm">New profiles are indexed from the blockchain daily. Check your matches!</p>
             <Link
               href="/matches"
-              className="mt-2 px-8 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-violet-500/30 transition-all"
+              className="mt-2 px-8 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-gray-900 font-bold text-sm hover:shadow-lg hover:shadow-violet-500/30 transition-all"
             >
               View Matches →
             </Link>
@@ -169,7 +169,7 @@ export default function SwipePage() {
             <div className="text-5xl">🎉</div>
             <div className="text-center">
               <h3 className="text-2xl font-black gradient-text mb-1">It&apos;s a Match!</h3>
-              <p className="text-gray-300 text-sm">You and <span className="text-white font-semibold">{showMatch.name}</span> liked each other.</p>
+              <p className="text-gray-300 text-sm">You and <span className="text-gray-900 font-semibold">{showMatch.name}</span> liked each other.</p>
               <p className="text-gray-500 text-xs mt-1">ZK proof verified on-chain ✓</p>
             </div>
             <div className="flex -space-x-3">
@@ -178,7 +178,7 @@ export default function SwipePage() {
             </div>
             <Link
               href="/matches"
-              className="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-violet-500/30 transition-all"
+              className="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-gray-900 font-bold text-sm hover:shadow-lg hover:shadow-violet-500/30 transition-all"
             >
               Send a Message →
             </Link>
@@ -188,4 +188,5 @@ export default function SwipePage() {
     </main>
   );
 }
+
 

@@ -22,14 +22,15 @@ export default function MatchCard({ address, name, photoUrl, lastMessage, onClic
       </div>
       {/* Info */}
       <div className="flex flex-col text-left min-w-0">
-        <span className="text-white font-semibold text-sm truncate">{name}</span>
+        <span className="text-gray-900 font-semibold text-sm truncate">{name}</span>
         <span className="text-gray-500 text-xs font-mono truncate">{address.slice(0,8)}…{address.slice(-6)}</span>
         {lastMessage && (
-          <span className="text-gray-400 text-xs truncate mt-0.5">{lastMessage}</span>
+          <span className="text-gray-600 text-xs truncate mt-0.5">{lastMessage}</span>
         )}
       </div>
       {/* Arrow */}
-      <div className="ml-auto text-gray-600 group-hover:text-violet-400 transition text-lg shrink-0">→</div>
+      <div className="ml-auto text-gray-600 group-hover:text-rose-500 transition text-lg shrink-0">→</div>
     </button>
   );
 }
+

@@ -84,7 +84,7 @@ export default function MatchesPage() {
             <span className="text-2xl">💜</span>
             <span className="font-black text-xl tracking-tight gradient-text">Sangam</span>
           </a>
-          <Link href="/swipe" className="text-sm text-gray-400 hover:text-violet-300 transition">← Swipe</Link>
+          <Link href="/swipe" className="text-sm text-gray-600 hover:text-violet-300 transition">← Swipe</Link>
         </div>
         <WalletConnect onConnected={handleConnected} />
       </nav>
@@ -131,7 +131,7 @@ export default function MatchesPage() {
           <div className="flex flex-col flex-1 overflow-hidden">
             {/* Chat header */}
             <div className="px-5 py-4 glass border-b border-white/5 flex items-center gap-3">
-              <button onClick={() => setActiveChat(null)} className="md:hidden text-gray-400 hover:text-white mr-1">←</button>
+              <button onClick={() => setActiveChat(null)} className="md:hidden text-gray-600 hover:text-white mr-1">←</button>
               <img src={activeChat.photoUrl} alt="" className="w-10 h-10 rounded-xl object-cover" />
               <div>
                 <p className="font-semibold text-white text-sm">{activeChat.name}</p>
@@ -154,7 +154,7 @@ export default function MatchesPage() {
                     className={`max-w-xs px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                       msg.from === "me"
                         ? "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-br-md"
-                        : "glass border border-white/10 text-gray-200 rounded-bl-md"
+                        : "glass border border-rose-200 text-gray-200 rounded-bl-md"
                     }`}
                   >
                     {msg.text}
@@ -203,4 +203,5 @@ export default function MatchesPage() {
     </main>
   );
 }
+
 

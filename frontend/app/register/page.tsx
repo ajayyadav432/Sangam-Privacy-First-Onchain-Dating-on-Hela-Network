@@ -36,8 +36,8 @@ export default function RegisterPage() {
             <div className="flex flex-col items-center gap-6 text-center py-8">
               <div className="text-5xl">🔐</div>
               <div>
-                <h1 className="text-2xl font-bold text-white mb-2">Connect to Register</h1>
-                <p className="text-gray-400 text-sm">You need a wallet to create your encrypted on-chain profile.</p>
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">Connect to Register</h1>
+                <p className="text-gray-600 text-sm">You need a wallet to create your encrypted on-chain profile.</p>
               </div>
               <WalletConnect onConnected={handleConnected} />
             </div>
@@ -53,4 +53,5 @@ export default function RegisterPage() {
     </main>
   );
 }
+
 
