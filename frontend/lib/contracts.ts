@@ -9,20 +9,19 @@ import { ethers } from "ethers";
 
 // ── Deployed addresses (populated by deploy script) ───────────────────────────
 export const DEPLOYED_ADDRESSES = {
-  DatingCore: process.env.NEXT_PUBLIC_DATING_CORE || "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-  EscrowContent: process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  DatingCore: process.env.NEXT_PUBLIC_DATING_CORE || "0x0000000000000000000000000000000000000001",
+  EscrowContent: process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0x0000000000000000000000000000000000000001",
+  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0x0000000000000000000000000000000000000001",
 };
 
 
 
-// ── Hela Network configuration ────────────────────────────────────────────────
 export const HELA_TESTNET = {
-  chainId: "0x7a69", // 31337 hex for Hardhat localhost
-  chainName: "Localhost 8545",
-  nativeCurrency: { name: "ETH", symbol: "ETH", decimals: 18 },
-  rpcUrls: ["http://127.0.0.1:8545"],
-  blockExplorerUrls: [],
+  chainId: "0xa2d08", // 666888 hex
+  chainName: "Hela Official Runtime Testnet",
+  nativeCurrency: { name: "HLUSD", symbol: "HLUSD", decimals: 18 },
+  rpcUrls: ["https://testnet-rpc.helachain.com"],
+  blockExplorerUrls: ["https://testnet-blockexplorer.helachain.com"],
 };
 
 // ── ABIs ──────────────────────────────────────────────────────────────────────

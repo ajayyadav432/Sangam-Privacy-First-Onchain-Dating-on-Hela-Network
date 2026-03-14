@@ -12,10 +12,13 @@ async function main() {
   console.log(`  Balance  : ${ethers.formatEther(await ethers.provider.getBalance(deployer.address))} HELA`);
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
+  // Common gas override for Hela Testnet
+  const gasOverride = { gasLimit: 5000000 };
+
   // 1. Deploy MockZKVerifier
   console.log("\n[1/3] Deploying MockZKVerifier...");
   const MockZKVerifier = await ethers.getContractFactory("MockZKVerifier");
-  const zkVerifier = await MockZKVerifier.deploy();
+  const zkVerifier = await MockZKVerifier.deploy(gasOverride);
   await zkVerifier.waitForDeployment();
   const zkAddress = await zkVerifier.getAddress();
   console.log(`      ✓ MockZKVerifier deployed at: ${zkAddress}`);
@@ -23,7 +26,7 @@ async function main() {
   // 2. Deploy DatingCore (depends on MockZKVerifier)
   console.log("\n[2/3] Deploying DatingCore...");
   const DatingCore = await ethers.getContractFactory("DatingCore");
-  const datingCore = await DatingCore.deploy(zkAddress);
+  const datingCore = await DatingCore.deploy(zkAddress, gasOverride);
   await datingCore.waitForDeployment();
   const coreAddress = await datingCore.getAddress();
   console.log(`      ✓ DatingCore deployed at:    ${coreAddress}`);
@@ -31,7 +34,7 @@ async function main() {
   // 3. Deploy EscrowContent
   console.log("\n[3/3] Deploying EscrowContent...");
   const EscrowContent = await ethers.getContractFactory("EscrowContent");
-  const escrow = await EscrowContent.deploy();
+  const escrow = await EscrowContent.deploy(gasOverride);
   await escrow.waitForDeployment();
   const escrowAddress = await escrow.getAddress();
   console.log(`      ✓ EscrowContent deployed at: ${escrowAddress}`);

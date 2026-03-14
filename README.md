@@ -3,6 +3,12 @@
 > **HackJKLU v5.0 · Hela Labs Track**  
 > A fully on-chain, ZK-private dating dApp. Swipe, match, and connect — without exposing your identity.
 
+## 🚀 Live App
+
+**[https://chain-date.vercel.app](https://chain-date.vercel.app)**
+
+> Connect MetaMask on **Hela Official Runtime Testnet** (Chain ID: 666888) to interact with the app.
+
 ---
 
 ## Architecture

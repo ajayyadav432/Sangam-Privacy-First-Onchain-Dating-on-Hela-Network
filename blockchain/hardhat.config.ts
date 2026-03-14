@@ -33,6 +33,7 @@ const config: HardhatUserConfig = {
       chainId: 666888, // Hela testnet chain ID — update if changed
       accounts: [PRIVATE_KEY],
       gasPrice: "auto",
+      timeout: 60000,
     },
     // Hela Mainnet (when deploying for production)
     helaMainnet: {
