@@ -14,6 +14,12 @@ export const DEPLOYED_ADDRESSES = {
   MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0x0000000000000000000000000000000000000003",
 };
 
+/** Returns true when contracts are not yet deployed (placeholder addresses).
+ *  In demo mode all transaction calls are skipped gracefully. */
+export function isDemoMode(): boolean {
+  return DEPLOYED_ADDRESSES.DatingCore.startsWith("0x000000000000000000000000000000000000000");
+}
+
 // ── Hela Network configuration ────────────────────────────────────────────────
 export const HELA_TESTNET = {
   chainId: "0xa2d08", // 666888 hex

@@ -52,10 +52,14 @@ export default function MatchesPage() {
       setTxPending(true);
       showToast("💌 Sending message on Hela Network…", "pending");
       try {
-        const { getDatingCoreContract } = await import("@/lib/contracts");
-        const contract = getDatingCoreContract(signer);
-        const tx = await contract.sendMessage(activeChat.address, { value: MSG_FEE });
-        await tx.wait();
+        const { getDatingCoreContract, isDemoMode } = await import("@/lib/contracts");
+        if (!isDemoMode()) {
+          const contract = getDatingCoreContract(signer);
+          const tx = await contract.sendMessage(activeChat.address, { value: MSG_FEE });
+          await tx.wait();
+        } else {
+          await new Promise(r => setTimeout(r, 600));
+        }
         showToast("✅ Message confirmed on-chain!", "success");
       } catch (err) {
         showToast("Message sent in demo mode (chain not connected)", "success");

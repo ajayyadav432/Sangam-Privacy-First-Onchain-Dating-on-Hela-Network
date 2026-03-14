@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ethers } from "ethers";
-import { getDatingCoreContract } from "@/lib/contracts";
+import { getDatingCoreContract, isDemoMode } from "@/lib/contracts";
 import { hashProfileForChain, deriveKey, encryptField } from "@/lib/encryption";
 import { generateMockProof, encodeProofForContract } from "@/lib/zk";
 
@@ -47,6 +47,17 @@ export default function ProfileForm({ signer, address, onRegistered }: ProfileFo
     setLoading(true);
 
     try {
+      // Demo mode: contracts not deployed yet, simulate the flow
+      if (isDemoMode()) {
+        setStep("encrypt"); await new Promise(r => setTimeout(r, 600));
+        setStep("zk");      await new Promise(r => setTimeout(r, 800));
+        setStep("tx");      await new Promise(r => setTimeout(r, 600));
+        setStep("done");
+        console.log("[Demo] Profile registration simulated — deploy contracts to go on-chain.");
+        setTimeout(onRegistered, 1200);
+        return;
+      }
+
       // Step 1: Encrypt profile fields
       setStep("encrypt");
       const key = await deriveKey(address);
