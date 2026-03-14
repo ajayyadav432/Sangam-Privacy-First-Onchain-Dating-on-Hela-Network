@@ -75,8 +75,8 @@ export default function SwipeCard({ profile, myInterestIds, myAge, signer, onSwi
           await tx.wait();
           showToast(liked ? `💜 You liked ${profile.name}! Waiting for match…` : "Swipe confirmed on-chain ✓", "success");
         }
-      } catch {
-        // Silently ignore — demo mode or chain not connected
+      } catch (err: any) {
+        showToast(`Transaction failed: ${err.message?.slice(0, 60)}`, "error");
       } finally {
         setTxPending(false);
       }

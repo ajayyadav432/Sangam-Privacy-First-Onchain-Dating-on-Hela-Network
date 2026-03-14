@@ -9,16 +9,12 @@ import { ethers } from "ethers";
 
 // ── Deployed addresses (populated by deploy script) ───────────────────────────
 export const DEPLOYED_ADDRESSES = {
-  DatingCore: process.env.NEXT_PUBLIC_DATING_CORE || "0x0000000000000000000000000000000000000001",
-  EscrowContent: process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0x0000000000000000000000000000000000000002",
-  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0x0000000000000000000000000000000000000003",
+  DatingCore: process.env.NEXT_PUBLIC_DATING_CORE || "0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF",
+  EscrowContent: process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF",
+  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF",
 };
 
-/** Returns true when contracts are not yet deployed (placeholder addresses).
- *  In demo mode all transaction calls are skipped gracefully. */
-export function isDemoMode(): boolean {
-  return DEPLOYED_ADDRESSES.DatingCore.startsWith("0x000000000000000000000000000000000000000");
-}
+
 
 // ── Hela Network configuration ────────────────────────────────────────────────
 export const HELA_TESTNET = {

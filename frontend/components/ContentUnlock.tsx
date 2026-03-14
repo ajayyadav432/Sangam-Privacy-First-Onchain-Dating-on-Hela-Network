@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ethers } from "ethers";
-import { getEscrowContract, isDemoMode } from "@/lib/contracts";
+import { getEscrowContract } from "@/lib/contracts";
 
 interface ContentUnlockProps {
   listingId: number;
@@ -27,13 +27,6 @@ export default function ContentUnlock({
     setStatus("pending");
     setError(null);
     try {
-      if (isDemoMode()) {
-        // Demo mode — simulate unlock
-        await new Promise(r => setTimeout(r, 1200));
-        setStatus("done");
-        onUnlocked(listingId);
-        return;
-      }
       const contract = getEscrowContract(signer);
       const tx = await contract.unlockContent(listingId, { value: price });
       await tx.wait();
