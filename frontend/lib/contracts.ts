@@ -9,18 +9,18 @@ import { ethers } from "ethers";
 
 // ── Deployed addresses (populated by deploy script) ───────────────────────────
 export const DEPLOYED_ADDRESSES = {
-  DatingCore:     process.env.NEXT_PUBLIC_DATING_CORE    || "0x0000000000000000000000000000000000000001",
-  EscrowContent:  process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0x0000000000000000000000000000000000000002",
-  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER    || "0x0000000000000000000000000000000000000003",
+  DatingCore: process.env.NEXT_PUBLIC_DATING_CORE || "0x0000000000000000000000000000000000000001",
+  EscrowContent: process.env.NEXT_PUBLIC_ESCROW_CONTENT || "0x0000000000000000000000000000000000000002",
+  MockZKVerifier: process.env.NEXT_PUBLIC_ZK_VERIFIER || "0x0000000000000000000000000000000000000003",
 };
 
 // ── Hela Network configuration ────────────────────────────────────────────────
 export const HELA_TESTNET = {
   chainId: "0xa2d08", // 666888 hex
-  chainName: "Hela Testnet",
-  nativeCurrency: { name: "HELA", symbol: "HELA", decimals: 18 },
+  chainName: "Hela Official Runtime Testnet",
+  nativeCurrency: { name: "HLUSD", symbol: "HLUSD", decimals: 18 },
   rpcUrls: ["https://testnet-rpc.helachain.com"],
-  blockExplorerUrls: ["https://testnet-blockscout.helachain.com"],
+  blockExplorerUrls: ["https://testnet-blockexplorer.helachain.com"],
 };
 
 // ── ABIs ──────────────────────────────────────────────────────────────────────
