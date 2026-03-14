@@ -61,8 +61,9 @@ export default function SwipeCard({ profile, myInterestIds, myAge, signer, onSwi
     setSwipeResult(liked ? "liked" : "noped");
     setIsDragging(false);
 
-    // Only attempt on-chain tx if a real signer is connected
-    if (signer) {
+    // Only trigger on-chain transaction for RIGHT swipe (like)
+    // Left swipe (pass/reject) is free and instant — no MetaMask popup
+    if (liked && signer) {
       setTxPending(true);
       try {
         const proof = await generateMockProof({ age: myAge, userInterests: myInterestIds, targetInterests: profile.interests_ids });
@@ -73,7 +74,7 @@ export default function SwipeCard({ profile, myInterestIds, myAge, signer, onSwi
           showToast("⛓️ Confirming swipe on Hela Network…", "pending");
           const tx = await contract.swipe(profile.address, liked, proofCalldata, signalsCalldata, { value: SWIPE_FEE });
           await tx.wait();
-          showToast(liked ? `💜 You liked ${profile.name}! Waiting for match…` : "Swipe confirmed on-chain ✓", "success");
+          showToast(`💜 You liked ${profile.name}! Waiting for match…`, "success");
         }
       } catch (err: any) {
         showToast(`Transaction failed: ${err.message?.slice(0, 60)}`, "error");
@@ -84,6 +85,7 @@ export default function SwipeCard({ profile, myInterestIds, myAge, signer, onSwi
 
     setTimeout(() => onSwipeDone(profile.address, liked), 400);
   }, [signer, myAge, myInterestIds, profile, onSwipeDone, showToast]);
+
 
   const onPointerUp = useCallback(() => {
     if (!isDragging) return;
